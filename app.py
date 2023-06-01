@@ -16,7 +16,9 @@ def index():
             prompt=generate_prompt(animal),
             temperature=0.6,
         )
+        print(response)
         return redirect(url_for("index", result=response.choices[0].text))
+        #return redirect(url_for("index", result=response.text))
 
     result = request.args.get("result")
     return render_template("index.html", result=result)
